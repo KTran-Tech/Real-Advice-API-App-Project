@@ -9,12 +9,10 @@ class App extends Component {
     }
 
     componentDidMount(){
-        this.fetchAdice();
+        this.fetchAdvice();
     }
 
-
-
-    fetchAdice = () =>{
+    fetchAdvice = () =>{
         axios.get('https://api.adviceslip.com/advice')
              .then(response=>{
                  //get 'advice' property from ...
@@ -32,12 +30,15 @@ class App extends Component {
 
     render(){
 
-        const {advice} = this.state
+        const {advice} = this.state;
 
         return(
             <div className="app">
                 <div className="card">
                      <h1 className="heading">{advice}</h1>
+                     <button className="button" onClick={this.fetchAdvice} >
+                         <span>GIVE ME ADVICE!</span>
+                     </button>
                 </div>
             </div>
         )
